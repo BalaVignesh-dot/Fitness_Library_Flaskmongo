@@ -1,0 +1,247 @@
+{% extends "base.html" %}
+
+{% block title %}
+Edit Exercise - FitLibrary
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+
+            <div class="form-card">
+
+                <h2 class="mb-4">
+                    Edit Exercise
+                </h2>
+
+
+                <form
+                    method="POST"
+                    enctype="multipart/form-data"
+                >
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Exercise Name
+                        </label>
+
+                        <input
+                            type="text"
+                            name="name"
+                            class="form-control"
+                            value="{{ exercise.name }}"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Category
+                        </label>
+
+                        <select
+                            name="category"
+                            class="form-select"
+                        >
+
+                            {% for category in [
+                                "Chest",
+                                "Back",
+                                "Shoulders",
+                                "Biceps",
+                                "Triceps",
+                                "Legs",
+                                "Glutes",
+                                "Core",
+                                "Cardio",
+                                "Full Body"
+                            ] %}
+
+                            <option
+                                value="{{ category }}"
+                                {% if exercise.category == category %}
+                                selected
+                                {% endif %}
+                            >
+
+                                {{ category }}
+
+                            </option>
+
+                            {% endfor %}
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Difficulty
+                        </label>
+
+                        <select
+                            name="difficulty"
+                            class="form-select"
+                        >
+
+                            <option
+                                {% if exercise.difficulty == "Beginner" %}
+                                selected
+                                {% endif %}
+                            >
+                                Beginner
+                            </option>
+
+                            <option
+                                {% if exercise.difficulty == "Intermediate" %}
+                                selected
+                                {% endif %}
+                            >
+                                Intermediate
+                            </option>
+
+                            <option
+                                {% if exercise.difficulty == "Advanced" %}
+                                selected
+                                {% endif %}
+                            >
+                                Advanced
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Equipment
+                        </label>
+
+                        <input
+                            type="text"
+                            name="equipment"
+                            class="form-control"
+                            value="{{ exercise.equipment }}"
+                        >
+
+                    </div>
+
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Target Muscles
+                        </label>
+
+                        <input
+                            type="text"
+                            name="target_muscles"
+                            class="form-control"
+                            value="{{ target_muscles }}"
+                        >
+
+                    </div>
+
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Description
+                        </label>
+
+                        <textarea
+                            name="description"
+                            class="form-control"
+                            rows="4"
+                            required
+                        >{{ exercise.description }}</textarea>
+
+                    </div>
+
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Instructions
+                        </label>
+
+                        <textarea
+                            name="instructions"
+                            class="form-control"
+                            rows="6"
+                            required
+                        >{{ instructions }}</textarea>
+
+                    </div>
+
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Replace Image
+                        </label>
+
+                        <input
+                            type="file"
+                            name="image"
+                            class="form-control"
+                            accept="image/*"
+                        >
+
+                    </div>
+
+
+                    <div class="mb-4">
+
+                        <label class="form-label">
+                            Replace Video
+                        </label>
+
+                        <input
+                            type="file"
+                            name="video"
+                            class="form-control"
+                            accept="video/*"
+                        >
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                        Update Exercise
+                    </button>
+
+
+                    <a
+                        href="{{ url_for('exercise_details', id=exercise._id) }}"
+                        class="btn btn-secondary"
+                    >
+                        Cancel
+                    </a>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,285 @@
+{% extends "base.html" %}
+
+{% block title %}
+Add Exercise - FitLibrary
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+
+            <div class="form-card">
+
+                <h2 class="mb-4">
+                    Add New Exercise
+                </h2>
+
+
+                <form
+                    method="POST"
+                    enctype="multipart/form-data"
+                >
+
+                    <!-- Name -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Exercise Name
+                        </label>
+
+                        <input
+                            type="text"
+                            name="name"
+                            class="form-control"
+                            placeholder="Example: Barbell Squat"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Category -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Category
+                        </label>
+
+                        <select
+                            name="category"
+                            class="form-select"
+                            required
+                        >
+
+                            <option value="">
+                                Select Category
+                            </option>
+
+                            <option>
+                                Chest
+                            </option>
+
+                            <option>
+                                Back
+                            </option>
+
+                            <option>
+                                Shoulders
+                            </option>
+
+                            <option>
+                                Biceps
+                            </option>
+
+                            <option>
+                                Triceps
+                            </option>
+
+                            <option>
+                                Legs
+                            </option>
+
+                            <option>
+                                Glutes
+                            </option>
+
+                            <option>
+                                Core
+                            </option>
+
+                            <option>
+                                Cardio
+                            </option>
+
+                            <option>
+                                Full Body
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Difficulty -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Difficulty
+                        </label>
+
+                        <select
+                            name="difficulty"
+                            class="form-select"
+                            required
+                        >
+
+                            <option>
+                                Beginner
+                            </option>
+
+                            <option>
+                                Intermediate
+                            </option>
+
+                            <option>
+                                Advanced
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Equipment -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Equipment
+                        </label>
+
+                        <input
+                            type="text"
+                            name="equipment"
+                            class="form-control"
+                            placeholder="Example: Barbell"
+                        >
+
+                    </div>
+
+
+                    <!-- Target Muscles -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Target Muscles
+                        </label>
+
+                        <input
+                            type="text"
+                            name="target_muscles"
+                            class="form-control"
+                            placeholder="Chest, Triceps, Shoulders"
+                        >
+
+                        <small class="text-muted">
+                            Separate multiple muscles using commas.
+                        </small>
+
+                    </div>
+
+
+                    <!-- Description -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Description
+                        </label>
+
+                        <textarea
+                            name="description"
+                            class="form-control"
+                            rows="4"
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- Instructions -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Instructions
+                        </label>
+
+                        <textarea
+                            name="instructions"
+                            class="form-control"
+                            rows="6"
+                            placeholder="Write each step on a new line"
+                            required
+                        ></textarea>
+
+                        <small class="text-muted">
+                            Put every instruction on a new line.
+                        </small>
+
+                    </div>
+
+
+                    <!-- Image -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Exercise Image
+                        </label>
+
+                        <input
+                            type="file"
+                            name="image"
+                            class="form-control"
+                            accept="image/*"
+                        >
+
+                    </div>
+
+
+                    <!-- Video -->
+
+                    <div class="mb-4">
+
+                        <label class="form-label">
+                            Exercise Video
+                        </label>
+
+                        <input
+                            type="file"
+                            name="video"
+                            class="form-control"
+                            accept="video/*"
+                        >
+
+                    </div>
+
+
+                    <div class="d-flex gap-2">
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary"
+                        >
+                            Add Exercise
+                        </button>
+
+                        <a
+                            href="{{ url_for('exercises') }}"
+                            class="btn btn-secondary"
+                        >
+                            Cancel
+                        </a>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

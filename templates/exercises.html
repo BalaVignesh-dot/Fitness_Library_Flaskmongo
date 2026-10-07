@@ -1,0 +1,243 @@
+{% extends "base.html" %}
+
+{% block title %}
+Exercises - FitLibrary
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+
+            <h1>
+                Exercise Library
+            </h1>
+
+            <p class="text-muted">
+                Browse all available exercises
+            </p>
+
+        </div>
+
+        <a
+            href="{{ url_for('add_exercise') }}"
+            class="btn btn-primary"
+        >
+            + Add Exercise
+        </a>
+
+    </div>
+
+
+    <!-- Search and Filter -->
+
+    <form
+        method="GET"
+        action="{{ url_for('exercises') }}"
+        class="filter-box mb-5"
+    >
+
+        <div class="row g-3">
+
+            <div class="col-md-4">
+
+                <input
+                    type="text"
+                    name="search"
+                    class="form-control"
+                    placeholder="Search exercise..."
+                    value="{{ search }}"
+                >
+
+            </div>
+
+
+            <div class="col-md-3">
+
+                <select
+                    name="category"
+                    class="form-select"
+                >
+
+                    <option value="">
+                        All Categories
+                    </option>
+
+                    {% for category in categories %}
+
+                    <option
+                        value="{{ category }}"
+                        {% if selected_category == category %}
+                        selected
+                        {% endif %}
+                    >
+
+                        {{ category }}
+
+                    </option>
+
+                    {% endfor %}
+
+                </select>
+
+            </div>
+
+
+            <div class="col-md-3">
+
+                <select
+                    name="difficulty"
+                    class="form-select"
+                >
+
+                    <option value="">
+                        All Difficulties
+                    </option>
+
+                    <option
+                        value="Beginner"
+                        {% if selected_difficulty == "Beginner" %}
+                        selected
+                        {% endif %}
+                    >
+                        Beginner
+                    </option>
+
+                    <option
+                        value="Intermediate"
+                        {% if selected_difficulty == "Intermediate" %}
+                        selected
+                        {% endif %}
+                    >
+                        Intermediate
+                    </option>
+
+                    <option
+                        value="Advanced"
+                        {% if selected_difficulty == "Advanced" %}
+                        selected
+                        {% endif %}
+                    >
+                        Advanced
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="col-md-2">
+
+                <button
+                    class="btn btn-dark w-100"
+                    type="submit"
+                >
+                    Search
+                </button>
+
+            </div>
+
+        </div>
+
+    </form>
+
+
+    {% if exercises %}
+
+    <div class="row">
+
+        {% for exercise in exercises %}
+
+        <div class="col-lg-4 col-md-6 mb-4">
+
+            <div class="card exercise-card h-100">
+
+                {% if exercise.image %}
+
+                <img
+                    src="{{ url_for('uploaded_image', filename=exercise.image) }}"
+                    class="card-img-top exercise-image"
+                    alt="{{ exercise.name }}"
+                >
+
+                {% else %}
+
+                <div class="no-image">
+                    🏋️
+                </div>
+
+                {% endif %}
+
+
+                <div class="card-body">
+
+                    <span class="badge bg-primary mb-2">
+
+                        {{ exercise.category }}
+
+                    </span>
+
+                    <span class="badge bg-secondary mb-2">
+
+                        {{ exercise.difficulty }}
+
+                    </span>
+
+
+                    <h4 class="card-title">
+
+                        {{ exercise.name }}
+
+                    </h4>
+
+
+                    <p class="text-muted">
+
+                        {{ exercise.description[:120] }}
+
+                        {% if exercise.description|length > 120 %}
+                        ...
+                        {% endif %}
+
+                    </p>
+
+
+                    <a
+                        href="{{ url_for('exercise_details', id=exercise._id) }}"
+                        class="btn btn-primary w-100"
+                    >
+                        View Details
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    {% else %}
+
+    <div class="text-center py-5">
+
+        <h3>
+            No exercises found
+        </h3>
+
+        <p class="text-muted">
+            Try another search or add a new exercise.
+        </p>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

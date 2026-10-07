@@ -1,0 +1,210 @@
+body {
+    background: #f5f7fa;
+    font-family: Arial, sans-serif;
+}
+
+
+/* Navbar */
+
+.navbar-brand {
+    font-size: 1.4rem;
+}
+
+
+/* Hero */
+
+.hero {
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.65),
+            rgba(0, 0, 0, 0.65)
+        ),
+        url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48")
+        center/cover;
+
+    color: white;
+}
+
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: 800;
+}
+
+
+.hero h1 span {
+    color: #ffc107;
+}
+
+
+/* Statistics */
+
+.stat-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+
+.stat-card h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+
+/* Features */
+
+.feature-card {
+    background: white;
+    padding: 30px;
+
+    border-radius: 15px;
+
+    height: 100%;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+
+/* Exercise Cards */
+
+.exercise-card {
+    border: none;
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.08);
+
+    transition: 0.3s;
+}
+
+
+.exercise-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+
+.exercise-image {
+    height: 230px;
+    object-fit: cover;
+}
+
+
+.no-image {
+    height: 230px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #e9ecef;
+
+    font-size: 4rem;
+}
+
+
+/* Forms */
+
+.form-card {
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+
+.form-control,
+.form-select {
+    padding: 12px;
+}
+
+
+/* Filter */
+
+.filter-box {
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+
+/* Details */
+
+.exercise-detail-image {
+    width: 100%;
+    max-height: 500px;
+
+    object-fit: cover;
+}
+
+
+.detail-no-image {
+    height: 400px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #e9ecef;
+
+    font-size: 6rem;
+
+    border-radius: 15px;
+}
+
+
+.info-box {
+    background: #f8f9fa;
+
+    padding: 20px;
+
+    border-radius: 10px;
+}
+
+
+.instruction-list li {
+    padding: 10px;
+
+    margin-bottom: 8px;
+
+    background: white;
+
+    border-radius: 8px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero {
+        min-height: 400px;
+    }
+
+}

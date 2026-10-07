@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home - Fitness Exercise Library
+{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-7">
+
+                <h1>
+                    Fitness Exercise
+                    <span>Library</span>
+                </h1>
+
+                <p class="lead">
+                    Discover exercises, learn correct techniques,
+                    and build a stronger body.
+                </p>
+
+                <a
+                    href="{{ url_for('exercises') }}"
+                    class="btn btn-light btn-lg me-2"
+                >
+                    Explore Exercises
+                </a>
+
+                <a
+                    href="{{ url_for('add_exercise') }}"
+                    class="btn btn-outline-light btn-lg"
+                >
+                    Add Exercise
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<div class="container mt-5">
+
+    <div class="row text-center">
+
+        <div class="col-md-4 mb-4">
+
+            <div class="stat-card">
+
+                <h2>
+                    {{ total_exercises }}
+                </h2>
+
+                <p>
+                    Total Exercises
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-4 mb-4">
+
+            <div class="stat-card">
+
+                <h2>
+                    {{ categories|length }}
+                </h2>
+
+                <p>
+                    Categories
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-4 mb-4">
+
+            <div class="stat-card">
+
+                <h2>
+                    100%
+                </h2>
+
+                <p>
+                    Free Library
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="text-center mt-5">
+
+        <h2>
+            Why Use FitLibrary?
+        </h2>
+
+        <p class="text-muted">
+            Find exercises with detailed instructions,
+            images and videos.
+        </p>
+
+    </div>
+
+
+    <div class="row mt-4">
+
+        <div class="col-md-4">
+
+            <div class="feature-card">
+
+                <h4>
+                    📚 Exercise Library
+                </h4>
+
+                <p>
+                    Browse exercises organized by muscle
+                    group and difficulty.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-4">
+
+            <div class="feature-card">
+
+                <h4>
+                    🎥 Video Guidance
+                </h4>
+
+                <p>
+                    Watch instructional videos to understand
+                    proper exercise technique.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-4">
+
+            <div class="feature-card">
+
+                <h4>
+                    🔍 Easy Search
+                </h4>
+
+                <p>
+                    Quickly find exercises using search
+                    and filtering.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
