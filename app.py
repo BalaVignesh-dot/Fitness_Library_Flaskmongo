@@ -5,6 +5,16 @@ from dotenv import load_dotenv
 from werkzeug.utils import secure_filename
 import os
 
+ 
+
+load_dotenv()
+
+MONGO_URI = os.getenv("MONGO_URI")
+
+client = MongoClient(MONGO_URI)
+
+db = client["fitness_library"]
+exercises = db["exercises"]
 
 # Load environment variables
 load_dotenv()
